@@ -6,7 +6,7 @@ env:
   KERNEL_VERSION: '6.12'
   SUB_VERSION: '38'
   KERNEL_NAME: 'android16-5-g8c67d4274c0a-ab14275539-4k'
-  CCACHE_KEY: ccache-ecsv2-6.12.38
+  CCACHE_KEY: ccache-ecsv3-6.12.38
 
 on:
   workflow_dispatch:
@@ -174,7 +174,7 @@ jobs:
           if [[ "${{ github.event.inputs.droidspaces_enable }}" != "false" ]]; then
             CCACHE_REAL_KEY=${{ env.CCACHE_KEY }}-Droidspaces
           else
-            CCACHE_REAL_KEY=${{ env.CCACHE_KEY }}
+            CCACHE_REAL_KEY=${{ env.CCACHE_KEY }}-none
           fi
           echo "CCACHE_REAL_KEY=$CCACHE_REAL_KEY" >> $GITHUB_ENV
 
